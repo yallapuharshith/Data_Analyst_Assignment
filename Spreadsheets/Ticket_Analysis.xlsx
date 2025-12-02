@@ -1,0 +1,13 @@
+1. populate 'ticket_created_at' column in feedbacks table with 'created_at' column of corresponding  ticket 
+sol  : =VLOOKUP(A2, ticket!E:F, 2, FALSE)
+
+2. fetch outlet-wise count of tickets created AND closed in - 
+
+a. the same day 
+sol: =COUNTIFS(ticket!D:D, feedbacks!A2, TEXT(ticket!B:B,"yyyy-mm-dd"), TEXT(ticket!C:C,"yyyy-mm-dd"))
+
+b. same hour of the same day
+sol: =COUNTIFS(ticket!D:D, feedbacks!A2,
+          TEXT(ticket!B:B,"yyyy-mm-dd hh"), TEXT(ticket!C:C,"yyyy-mm-dd hh"))
+
+
